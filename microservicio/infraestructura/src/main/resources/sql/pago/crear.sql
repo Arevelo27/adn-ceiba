@@ -1,0 +1,2 @@
+INSERT INTO pagos (documento_Identificacion_Deudor,codigo_Factura,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago)
+values (:documentoIdentificacionDeudor,:codigoFactura,:valorAdeudado,:valorPagado,:fechaVencimientoPago,:fechaPago)

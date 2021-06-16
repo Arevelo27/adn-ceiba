@@ -1,0 +1,1 @@
+select id_entidad,eps,valor,fecha_viculacion,fecha_Pago, activo from entidad

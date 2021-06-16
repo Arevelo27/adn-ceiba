@@ -1,0 +1,1 @@
+select count(1) from pagos where id_pago <> :idPago and codigo_factura = :codigoFactura

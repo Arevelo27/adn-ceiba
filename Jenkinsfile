@@ -1,13 +1,13 @@
 
 pipeline {
   //Donde se va a ejecutar el Pipeline
-  //agent {
-    //label 'Slave_Induccion'
-  //}
-  agent any
-  triggers {
-          pollSCM('* * * * *')
-      }
+  agent {
+    label 'Slave_Induccion'
+  }
+  //agent any
+  //triggers {
+          //pollSCM('* * * * *')
+      //}
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
     	buildDiscarder(logRotator(numToKeepStr: '3'))

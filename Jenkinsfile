@@ -18,7 +18,6 @@ pipeline {
   tools {
     jdk 'JDK8_Centos' //Preinstalada en la Configuración del Master
     gradle 'Gradle6.0.1_Centos' //Preinstalada en la Configuración del Master
-    //gradle 'Gradle5.6_Centos' //Preinstalada en la Configuración del Master
   }
 
   //Aquí comienzan los “items” del Pipeline
@@ -46,10 +45,8 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-        //sh 'chmod +x gradlew'
-        //sh './gradlew --b ./microservicio/build.gradle test'
-        sh 'gradle --b ./microservicio/build.gradle test'
 		sh 'gradle --b ./microservicio/build.gradle clean compileJava'
+        sh 'gradle --b ./microservicio/build.gradle test'
       }
     }
 
@@ -66,7 +63,6 @@ pipeline {
       steps {
         echo "------------>Build<------------"
 		//Construir sin tarea test que se ejecutó previamente
-		//sh 'gradle --b ./microservicio/build.gradle build -x test'
 		sh 'gradle --b ./microservicio/build.gradle build -x test'
       }
     }

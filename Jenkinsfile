@@ -5,7 +5,9 @@ pipeline {
     //label 'Slave_Induccion'
   //}
   agent any
-
+  triggers {
+          pollSCM('* * * * *')
+      }
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
     	buildDiscarder(logRotator(numToKeepStr: '3'))

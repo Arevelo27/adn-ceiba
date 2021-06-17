@@ -35,7 +35,7 @@ public class ComandoControladorPagoTest {
         ComandoPago pago = new ComandoPagoTestDataBuilder().conCodigoFactura("FV-5000").build();
 
         // act - assert
-        mocMvc.perform(post("/sql.pagos")
+        mocMvc.perform(post("/pagos")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(pago)))
                 .andExpect(status().isOk());
@@ -47,7 +47,7 @@ public class ComandoControladorPagoTest {
         ComandoPago pago = new ComandoPagoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/sql.pagos")
+        mocMvc.perform(put("/pagos")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(pago)))
                 .andExpect(status().isOk());
@@ -59,7 +59,7 @@ public class ComandoControladorPagoTest {
         Long id = 99999L;
 
         // act - assert
-        mocMvc.perform(delete("/sql.pagos/{id}",id)
+        mocMvc.perform(delete("/pagos/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

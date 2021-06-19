@@ -1,0 +1,1 @@
+SELECT count(1) FROM ENTIDAD_PACIENTE ep WHERE ep.id_paciente =:idPaciente AND ep.VALOR = 0;

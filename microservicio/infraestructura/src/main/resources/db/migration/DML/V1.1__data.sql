@@ -51,31 +51,31 @@ INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telef
 INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telefono) VALUES('KEVIN', 'RUIZ', 72301343, 'CR 44A', 'carlos@gmail.com', '991855573');
 
 ---ENTIDAD_PACIENTE---
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (1, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (2, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (3, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (4, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (5, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (6, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (7, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (8, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (9, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (10, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (11, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (12, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (13, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (14, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (15, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (16, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (17, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (18, 3, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (19, 3, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (20, 3, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (21, 4, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (22, 4, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (23, 4, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (24, 5, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (25, 6, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (1, 1, 20.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (2, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (3, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (4, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (5, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (6, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (7, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (8, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (9, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (10, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (11, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (12, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (13, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (14, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (15, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (16, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (17, 2, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (18, 3, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (19, 3, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (20, 3, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (21, 4, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (22, 4, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (23, 4, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (24, 5, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (25, 6, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
 
 
 ---MEDICO---

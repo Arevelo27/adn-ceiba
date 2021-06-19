@@ -1,1 +1,1 @@
-select count(1) from entidad where id_entidad = :idEntidad
+SELECT count(1) FROM PACIENTE p WHERE identificacion=:identificacion

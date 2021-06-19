@@ -1,0 +1,1 @@
+select id_paciente from paciente where identificacion=:identificacion

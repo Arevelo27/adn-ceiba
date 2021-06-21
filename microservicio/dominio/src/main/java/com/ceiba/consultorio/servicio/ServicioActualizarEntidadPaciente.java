@@ -7,11 +7,13 @@ import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionNoExiste;
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 
 public class ServicioActualizarEntidadPaciente {
 
     public static final String EL_PACIENTE_NO_EXISTE = "El Paciente no existe";
     public static final String EL_PACIENTE_NO_TIENE_PENDIENTE = "El Paciente no tiene pendientes";
+    public static final String EL_VALOR_A_PAGAR = "El valor a pagar es inferior al valor del sistema, debe cancelar el valor de $80000.00";
     private static final int DIA_LIMITE = 5;
     private static final double VALOR_PAGO = 80000.00;
     private final RepositorioEntidadPaciente repositorioEntidadPaciente;
@@ -26,6 +28,7 @@ public class ServicioActualizarEntidadPaciente {
         validarExistenciaPreviaPaciente(pago);
         pago = validarIdPaciente(pago);
         validarExistenciaPreviaPago(pago);
+        validarValorPago(pago);
         pago = validarFechaPago(pago);
         this.repositorioEntidadPaciente.actualizar(pago);
     }
@@ -56,10 +59,16 @@ public class ServicioActualizarEntidadPaciente {
         }
     }
 
+    public void validarValorPago(EntidadPaciente pago) {
+        if (Double.compare(pago.getValor(), VALOR_PAGO) != 0) {
+            throw new ExcepcionValorInvalido(EL_VALOR_A_PAGAR);
+        }
+    }
+
     public EntidadPaciente validarFechaPago(EntidadPaciente pago) {
         int dia = pago.getFechaPago().getDayOfMonth();
         if (dia > DIA_LIMITE) {
-            pago.setValor(VALOR_PAGO + VALOR_PAGO * 0.1);
+            pago.setValor(pago.getValor() + VALOR_PAGO * 0.1);
         }
         return pago;
     }

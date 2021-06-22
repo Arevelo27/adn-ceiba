@@ -1,22 +1,20 @@
 package com.ceiba.consultorio.servicio;
 
-import com.ceiba.consultorio.modelo.entidad.Pago;
-import com.ceiba.consultorio.servicio.testdatabuilder.PagoTestDataBuilder;
 import com.ceiba.core.BasePrueba;
 import com.ceiba.consultorio.modelo.entidad.EntidadPaciente;
 import com.ceiba.consultorio.modelo.entidad.Paciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioEntidadPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
-import com.ceiba.consultorio.puerto.repositorio.RepositorioPago;
 import com.ceiba.consultorio.servicio.testdatabuilder.EntidadPacienteTestdDataBuilder;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
+import com.ceiba.core.BasePrueba;
+import com.ceiba.dominio.excepcion.ExcepcionNoExiste;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 public class ServicioActualizarEntidadPacienteTest {
@@ -97,17 +95,81 @@ public class ServicioActualizarEntidadPacienteTest {
         String date = "2021-06-05T12:30:54";
         LocalDateTime localdatetime = LocalDateTime.parse(date);
 
-        EntidadPacienteTestdDataBuilder pagoTestDataBuilder =
+        EntidadPacienteTestdDataBuilder entidadPacienteTestdDataBuilder =
                 new EntidadPacienteTestdDataBuilder().conFechaPago(localdatetime).conValor(80000.0);
-        EntidadPaciente pago = pagoTestDataBuilder.build();
+        EntidadPaciente pago = entidadPacienteTestdDataBuilder.build();
 
-        RepositorioEntidadPaciente repositorioPago = Mockito.mock(RepositorioEntidadPaciente.class);
-        when(repositorioPago.existeincluyendoId(Mockito.anyInt())).thenReturn(true);
-        ServicioActualizarEntidadPaciente servicioActualizarPago = new ServicioActualizarEntidadPaciente(repositorioPago, null);
+        RepositorioEntidadPaciente repositorioEntidadPaciente = Mockito.mock(RepositorioEntidadPaciente.class);
+        when(repositorioEntidadPaciente.existeincluyendoId(Mockito.anyInt())).thenReturn(true);
+        ServicioActualizarEntidadPaciente servicioActualizarPago = new ServicioActualizarEntidadPaciente(repositorioEntidadPaciente, null);
 
-        EntidadPaciente pagoRespueta = servicioActualizarPago.validarFechaPago(pago);
+        EntidadPaciente entidadPacienteRespueta = servicioActualizarPago.validarFechaPago(pago);
 
         // act - assert
-        assertEquals(VALOR_SIN_INCREMENTO,pagoRespueta.getValor(),0);
+        assertEquals(VALOR_SIN_INCREMENTO,entidadPacienteRespueta.getValor(),0);
+    }
+
+    @Test(expected= ExcepcionNoExiste.class)
+    public void actualizarPagoNoExistenteTest() throws Exception {
+        // arrange
+        Paciente paciente = new Paciente();
+        paciente.setIdentificacion(11111111);
+        paciente.setIdPaciente(222);
+
+        EntidadPacienteTestdDataBuilder entidadPacienteTestdDataBuilder =
+                new EntidadPacienteTestdDataBuilder().conPaciente(paciente).conValor(0.0);
+
+        RepositorioEntidadPaciente repositorioEntidadPaciente = Mockito.mock(RepositorioEntidadPaciente.class);
+        RepositorioPaciente repositorioPaciente = Mockito.mock(RepositorioPaciente.class);
+        ServicioActualizarEntidadPaciente servicioActualizarPago = new ServicioActualizarEntidadPaciente(repositorioEntidadPaciente, repositorioPaciente);
+
+        //act
+        EntidadPaciente entidadPacienteRespueta = entidadPacienteTestdDataBuilder.build();
+        servicioActualizarPago.ejecutar(entidadPacienteRespueta);
+
+        //assert
+        assertEquals(entidadPacienteRespueta.getIdEntidadPaciente(), ID_PAGO);
+    }
+
+    @Test
+    public void actualizarPagoTest(){
+        // arrange
+        Paciente paciente = new Paciente();
+        paciente.setIdentificacion(11111111);
+        paciente.setIdPaciente(222);
+
+        EntidadPacienteTestdDataBuilder entidadPacienteTestdDataBuilder =
+                new EntidadPacienteTestdDataBuilder().conPaciente(paciente).conValor(80000.0);
+        RepositorioEntidadPaciente repositorioEntidadPaciente = Mockito.mock(RepositorioEntidadPaciente.class);
+        RepositorioPaciente repositorioPaciente = Mockito.mock(RepositorioPaciente.class);
+        EntidadPaciente entidadPaciente = entidadPacienteTestdDataBuilder.build();
+        ServicioActualizarEntidadPaciente servicioActualizarEntidadPaciente = new ServicioActualizarEntidadPaciente(repositorioEntidadPaciente, repositorioPaciente);
+
+        //act
+        EntidadPaciente entidadPacienteRespuesta = entidadPacienteTestdDataBuilder.conPaciente(paciente).build();
+        when(repositorioPaciente.existe(Mockito.anyInt())).thenReturn(Boolean.TRUE);
+        //when(servicioActualizarEntidadPaciente.validarIdPaciente(entidadPaciente)).thenReturn(entidadPacienteRespuesta);
+        //when(servicioActualizarEntidadPaciente.validarExistenciaPreviaPago(entidadPacienteRespuesta)).thenReturn(Boolean.TRUE);
+        when(repositorioEntidadPaciente.existeincluyendoId(Mockito.anyInt())).thenReturn(true);
+        servicioActualizarEntidadPaciente.ejecutar(entidadPacienteRespuesta);
+
+        //assert
+        Mockito.verify(repositorioEntidadPaciente).actualizar(entidadPacienteRespuesta);
+    }
+
+    @Test
+    public void validarPagoExistenciaPreviaTest(){
+        // arrange
+        EntidadPaciente entidadPaciente = new EntidadPacienteTestdDataBuilder().conValor(80000.0).build();
+        RepositorioEntidadPaciente repositorioEntidadPaciente = Mockito.mock(RepositorioEntidadPaciente.class);
+        RepositorioPaciente repositorioPaciente = Mockito.mock(RepositorioPaciente.class);
+
+        //act
+        when(repositorioPaciente.existe(Mockito.anyInt())).thenReturn(Boolean.TRUE);
+        when(repositorioEntidadPaciente.existeExcluyendoId(Mockito.anyInt())).thenReturn(true);
+        ServicioActualizarEntidadPaciente servicioActualizarPago = new ServicioActualizarEntidadPaciente(repositorioEntidadPaciente, repositorioPaciente);
+
+        // act - assert
+        BasePrueba.assertThrows(() -> servicioActualizarPago.ejecutar(entidadPaciente), ExcepcionNoExiste.class, servicioActualizarPago.EL_PACIENTE_NO_TIENE_PENDIENTE );
     }
 }

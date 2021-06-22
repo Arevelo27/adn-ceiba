@@ -11,10 +11,17 @@ public interface RepositorioEntidadPaciente {
     void actualizar(EntidadPaciente pago);
 
     /**
-     * Permite validar si existe un EntidadPaciente con un nombre excluyendo un id
+     * Permite validar si existe un EntidadPaciente con un id
      * @param idPaciente
      * @return si existe o no
      */
     boolean existeincluyendoId(Integer idPaciente);
+
+    /**
+     * Permite validar si existe un EntidadPaciente excluyendo un id
+     * @param idPaciente
+     * @return si existe o no
+     */
+    boolean existeExcluyendoId(Integer idPaciente);
 
 }

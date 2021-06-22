@@ -51,7 +51,7 @@ INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telef
 INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telefono) VALUES('KEVIN', 'RUIZ', 72301343, 'CR 44A', 'carlos@gmail.com', '991855573');
 
 ---ENTIDAD_PACIENTE---
-INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (1, 1, 20.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
+INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (1, 1, 80000.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);
 INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (2, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
 INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (3, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);
 INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (4, 1, 0.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 0);

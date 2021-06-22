@@ -36,7 +36,7 @@ public class ServicioActualizarEntidadPaciente {
     public boolean validarExistenciaPreviaPaciente(EntidadPaciente pago) {
         boolean existe = this.repositorioPaciente.existe(pago.getPaciente().getIdentificacion());
         if (!existe) {
-            throw new ExcepcionDuplicidad(EL_PACIENTE_NO_EXISTE);
+            throw new ExcepcionNoExiste(EL_PACIENTE_NO_EXISTE);
         }
         return true;
     }

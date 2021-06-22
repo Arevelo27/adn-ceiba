@@ -1,7 +1,7 @@
 package com.ceiba.consultorio.controlador;
 
-import com.ceiba.consultorio.consulta.ManejadorListarPagos;
-import com.ceiba.consultorio.modelo.dto.DtoPago;
+import com.ceiba.consultorio.consulta.ManejadorListarPaciente;
+import com.ceiba.consultorio.modelo.dto.DtoPaciente;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pagos")
-@Api(tags={"Controlador consulta pagos"})
-public class ConsultaControladorPago {
+@RequestMapping("/paciente")
+@Api(tags={"Controlador consulta pacientes"})
+public class ConsultaControladorPaciente {
 
-    private final ManejadorListarPagos manejadorListarPagos;
+    private final ManejadorListarPaciente manejadorListarPaciente;
 
-    public ConsultaControladorPago(ManejadorListarPagos manejadorListarPagos) {
-        this.manejadorListarPagos = manejadorListarPagos;
+    public ConsultaControladorPaciente(ManejadorListarPaciente manejadorListarPaciente) {
+        this.manejadorListarPaciente = manejadorListarPaciente;
     }
 
     @GetMapping
-    @ApiOperation("Listar Pagos")
-    public List<DtoPago> listar() {
-        return this.manejadorListarPagos.ejecutar();
+    @ApiOperation("Listar Pacientes")
+    public List<DtoPaciente> listar() {
+        return this.manejadorListarPaciente.ejecutar();
     }
 
-    @GetMapping("/id")
-    @ApiOperation("Listar Pagos identificacion")
-    public List<DtoPago> listarPorCedula(@RequestParam("identificacion") String identificacion) {
-        return this.manejadorListarPagos.ejecutar(identificacion);
+    @GetMapping("/{identificacion}")
+    @ApiOperation("Listar Pacientes por identificacion")
+    public List<DtoPaciente> listarPorCedula(@PathVariable("identificacion") String identificacion) {
+        return this.manejadorListarPaciente.ejecutar(identificacion);
     }
 }

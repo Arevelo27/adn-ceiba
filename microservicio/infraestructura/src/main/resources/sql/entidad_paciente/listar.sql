@@ -1,3 +1,4 @@
-select id_Pago,documento_Identificacion_Deudor,codigo_Factura,
-valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago
-from pagos
+SELECT ep.ID_ENTIDAD_PACIENTE, p.NOMBRES, p.APELLIDOS , e.EPS, ep.VALOR, ep.FECHA_VICULACION, ep.FECHA_PAGO, ep.ACTIVO
+FROM ENTIDAD_PACIENTE ep
+  INNER JOIN PACIENTE p ON ep.ID_PACIENTE = p.ID_PACIENTE
+  INNER JOIN ENTIDAD e ON ep.ID_ENTIDAD  = e.ID_ENTIDAD;

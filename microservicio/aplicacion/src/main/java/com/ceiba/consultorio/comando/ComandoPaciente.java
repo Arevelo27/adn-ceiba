@@ -9,26 +9,35 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComandoPago {
+public class ComandoPaciente {
 
-    private Long idPago;
-    private String documentoIdentificacionDeudor;
-    private String codigoFactura;
-    private double valorAdeudado;
-    private double valorPagado;
-    private String fechaVencimientoPago;
-    private String fechaPago;
+    private Integer idPaciente;
+    private String nombres;
+    private String apellidos;
+    private Integer identificacion;
+    private String direccion;
+    private String telefono;
+    private String email;
 
     @Override
     public String toString() {
-        return "ComandoPago{" +
-                "idPago=" + idPago +
-                ", documentoIdentificacionDeudor='" + documentoIdentificacionDeudor + '\'' +
-                ", codigoFactura='" + codigoFactura + '\'' +
-                ", valorAdeudado=" + valorAdeudado +
-                ", valorPagado=" + valorPagado +
-                ", fechaVencimientoPago='" + fechaVencimientoPago + '\'' +
-                ", fechaPago='" + fechaPago + '\'' +
+        return "ComandoPaciente{" +
+                "idPaciente=" + idPaciente +
+                ", nombres='" + nombres + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", identificacion=" + identificacion +
+                ", direccion=" + direccion +
+                ", telefono='" + telefono + '\'' +
+                ", email='" + email + '\'' +
                 '}';
+    }
+
+    public ComandoPaciente(Integer identificacion, String nombres, String apellidos, String direccion, String telefono, String email) {
+        this.identificacion = identificacion;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
     }
 }

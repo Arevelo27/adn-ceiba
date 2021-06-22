@@ -1,20 +1,21 @@
 package com.ceiba.consultorio.comando.manejador;
 
-import com.ceiba.manejador.ManejadorComando;
+import com.ceiba.consultorio.servicio.ServicioEliminarPaciente;
 import com.ceiba.consultorio.servicio.ServicioEliminarPago;
+import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 
 
 @Component
-public class ManejadorEliminarPago implements ManejadorComando<Long> {
+public class ManejadorEliminarPaciente implements ManejadorComando<Integer> {
 
-    private final ServicioEliminarPago servicioEliminarPago;
+    private final ServicioEliminarPaciente servicioEliminarPaciente;
 
-    public ManejadorEliminarPago(ServicioEliminarPago servicioEliminarPago) {
-        this.servicioEliminarPago = servicioEliminarPago;
+    public ManejadorEliminarPaciente(ServicioEliminarPaciente servicioEliminarPaciente) {
+        this.servicioEliminarPaciente = servicioEliminarPaciente;
     }
 
-    public void ejecutar(Long idPago) {
-        this.servicioEliminarPago.ejecutar(idPago);
+    public void ejecutar(Integer ident) {
+        this.servicioEliminarPaciente.ejecutar(ident);
     }
 }

@@ -1,3 +1,3 @@
-delete 
-from entidad
-where id_entidad = :idEntidad
+delete
+from paciente
+where identificacion = :identificacion

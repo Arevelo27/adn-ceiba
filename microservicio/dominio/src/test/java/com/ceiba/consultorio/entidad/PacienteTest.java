@@ -90,6 +90,20 @@ public class PacienteTest {
     }
 
     @Test
+    public void validarActualizacionPagoTest() {
+        // arrange
+        PacienteTestDataBuilder pacienteTestDataBuilder = new PacienteTestDataBuilder().conIdentificacion(99999);
+
+        //act
+        Paciente paciente = pacienteTestDataBuilder.build();
+
+        //assert
+        Paciente pacienteTest = new Paciente(paciente.getIdPaciente(), paciente.getNombres(), paciente.getApellidos(),
+                paciente.getDireccion(), paciente.getTelefono(), paciente.getEmail());
+        assertNotNull(pacienteTest);
+    }
+
+    @Test
     public void validarCreacionPagoTest() {
         // arrange
         PacienteTestDataBuilder pacienteTestDataBuilder = new PacienteTestDataBuilder();

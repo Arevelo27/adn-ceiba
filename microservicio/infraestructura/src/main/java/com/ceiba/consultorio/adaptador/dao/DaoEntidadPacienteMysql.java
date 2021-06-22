@@ -14,11 +14,19 @@ public class DaoEntidadPacienteMysql implements DaoEntidadPaciente {
     private static final String CAMPO_IDENTIFICACION = "docIdentificacionPaciente";
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
+    @SqlStatement(namespace= "entidad_paciente", value="listar")
+    private static String sqlListar;
+
     @SqlStatement(namespace= "entidad_paciente", value="listarPorCedula")
     private static String sqlListarPorCedula;
 
     public DaoEntidadPacienteMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
+    }
+
+    @Override
+    public List<DtoEntidadPaciente> listar() {
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoEntidadPaciente());
     }
 
     @Override

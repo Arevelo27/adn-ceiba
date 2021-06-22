@@ -1,21 +1,23 @@
 package com.ceiba.consultorio.consulta;
 
 import com.ceiba.consultorio.modelo.dto.DtoEntidadPaciente;
-import com.ceiba.consultorio.modelo.dto.DtoPago;
+import com.ceiba.consultorio.modelo.dto.DtoPaciente;
 import com.ceiba.consultorio.puerto.dao.DaoEntidadPaciente;
+import com.ceiba.consultorio.puerto.dao.DaoPaciente;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 @Component
-public class ManejadorListarEntidadPaciente {
+public class ManejadorListarPaciente {
 
-    private final DaoEntidadPaciente daoEntidadPaciente;
+    private final DaoPaciente daoPaciente;
 
-    public ManejadorListarEntidadPaciente(DaoEntidadPaciente daoEntidadPaciente){
-        this.daoEntidadPaciente = daoEntidadPaciente;
+    public ManejadorListarPaciente(DaoPaciente daoPaciente){
+        this.daoPaciente = daoPaciente;
     }
 
-    public List<DtoEntidadPaciente> ejecutar(){ return this.daoEntidadPaciente.listar(); }
+    public List<DtoPaciente> ejecutar(){ return this.daoPaciente.listar(); }
 
-    public List<DtoEntidadPaciente> ejecutar(String identificacion){ return this.daoEntidadPaciente.listarPorCedula(identificacion); }
+    public List<DtoPaciente> ejecutar(String identificacion){ return this.daoPaciente.listarPorCedula(identificacion); }
 }

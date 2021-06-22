@@ -15,8 +15,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = ApplicationMock.class)
-@WebMvcTest(ConsultaControladorEntidadPaciente.class)
-public class ConsultaControladorEntidadPacienteTest {
+@WebMvcTest(ConsultaControladorPaciente.class)
+public class ConsultaControladorPacienteTest {
 
     @Autowired
     private MockMvc mocMvc;
@@ -26,7 +26,7 @@ public class ConsultaControladorEntidadPacienteTest {
         // arrange
 
         // act - assert
-        String response = mocMvc.perform(get("/entidad_paciente/")
+        String response = mocMvc.perform(get("/paciente/")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
     }
@@ -34,10 +34,10 @@ public class ConsultaControladorEntidadPacienteTest {
     @Test
     public void listarPorCedula() throws Exception {
         // arrange
-        String id = "723023012";
+        String id = "11111111";
 
         // act - assert
-        String response = mocMvc.perform(get("/entidad_paciente/{identificacion}", id)
+        String response = mocMvc.perform(get("/paciente/{identificacion}", id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
     }

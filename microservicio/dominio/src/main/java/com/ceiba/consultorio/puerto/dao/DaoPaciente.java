@@ -1,20 +1,20 @@
 package com.ceiba.consultorio.puerto.dao;
 
-import com.ceiba.consultorio.modelo.dto.DtoEntidadPaciente;
+import com.ceiba.consultorio.modelo.dto.DtoPaciente;
 
 import java.util.List;
 
-public interface DaoEntidadPaciente {
+public interface DaoPaciente {
 
     /**
-     * Permite listar entidades pacientes
-     * @return los pagos
+     * Permite listar  pacientes
+     * @return los pacientes
      */
-    List<DtoEntidadPaciente> listar();
+    List<DtoPaciente> listar();
 
     /**
      * Permite listar paciente por identificación
-     * @return los pagos
+     * @return los pacientes
      */
-    List<DtoEntidadPaciente> listarPorCedula(String docIdentificacionPaciente);
+    List<DtoPaciente> listarPorCedula(String docIdentificacion);
 }

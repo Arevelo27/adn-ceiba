@@ -1,29 +1,31 @@
 package com.ceiba.consultorio.servicio;
 
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
+import com.ceiba.consultorio.modelo.entidad.Paciente;
 import com.ceiba.consultorio.modelo.entidad.Pago;
+import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPago;
+import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 
 
-public class ServicioCrearPago {
+public class ServicioCrearPaciente {
 
-    public static final String EL_PAGO_YA_EXISTE_EN_EL_SISTEMA = "El pago ya existe en el sistema";
+    public static final String EL_PACIENTE_YA_EXISTE_EN_EL_SISTEMA = "El paciente ya existe en el sistema";
 
-    private final RepositorioPago repositorioPago;
+    private final RepositorioPaciente repositorioPaciente;
 
-    public ServicioCrearPago(RepositorioPago repositorioPago) {
-        this.repositorioPago = repositorioPago;
+    public ServicioCrearPaciente(RepositorioPaciente repositorioPaciente) {
+        this.repositorioPaciente = repositorioPaciente;
     }
 
-    public Long ejecutar(Pago pago) {
-        validarExistenciaPrevia(pago);
-        return this.repositorioPago.crear(pago);
+    public Long ejecutar(Paciente paciente) {
+        validarExistenciaPrevia(paciente);
+        return this.repositorioPaciente.crear(paciente);
     }
 
-    private void validarExistenciaPrevia(Pago pago) {
-        boolean existe = this.repositorioPago.existe(pago.getCodigoFactura());
+    private void validarExistenciaPrevia(Paciente pago) {
+        boolean existe = this.repositorioPaciente.existe(pago.getIdentificacion());
         if(existe) {
-            throw new ExcepcionDuplicidad(EL_PAGO_YA_EXISTE_EN_EL_SISTEMA);
+            throw new ExcepcionDuplicidad(EL_PACIENTE_YA_EXISTE_EN_EL_SISTEMA);
         }
     }
 }

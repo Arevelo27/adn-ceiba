@@ -1,26 +1,30 @@
 package com.ceiba.consultorio.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.manejador.ManejadorComandoRespuesta;
+import com.ceiba.consultorio.comando.ComandoPaciente;
 import com.ceiba.consultorio.comando.ComandoPago;
+import com.ceiba.consultorio.comando.fabrica.FabricaPaciente;
 import com.ceiba.consultorio.comando.fabrica.FabricaPago;
+import com.ceiba.consultorio.modelo.entidad.Paciente;
 import com.ceiba.consultorio.modelo.entidad.Pago;
+import com.ceiba.consultorio.servicio.ServicioCrearPaciente;
 import com.ceiba.consultorio.servicio.ServicioCrearPago;
+import com.ceiba.manejador.ManejadorComandoRespuesta;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ManejadorCrearPago implements ManejadorComandoRespuesta<ComandoPago, ComandoRespuesta<Long>> {
+public class ManejadorCrearPaciente implements ManejadorComandoRespuesta<ComandoPaciente, ComandoRespuesta<Long>> {
 
-    private final FabricaPago fabricaPago;
-    private final ServicioCrearPago servicioCrearPago;
+    private final FabricaPaciente fabricaPaciente;
+    private final ServicioCrearPaciente servicioCrearPaciente;
 
-    public ManejadorCrearPago(FabricaPago fabricaPago, ServicioCrearPago servicioCrearPago) {
-        this.fabricaPago = fabricaPago;
-        this.servicioCrearPago = servicioCrearPago;
+    public ManejadorCrearPaciente(FabricaPaciente fabricaPaciente, ServicioCrearPaciente servicioCrearPaciente) {
+        this.fabricaPaciente = fabricaPaciente;
+        this.servicioCrearPaciente = servicioCrearPaciente;
     }
 
-    public ComandoRespuesta<Long> ejecutar(ComandoPago comandoPago) {
-        Pago pago = this.fabricaPago.crear(comandoPago);
-        return new ComandoRespuesta<>(this.servicioCrearPago.ejecutar(pago));
+    public ComandoRespuesta<Long> ejecutar(ComandoPaciente comandoPaciente) {
+        Paciente paciente = this.fabricaPaciente.crear(comandoPaciente);
+        return new ComandoRespuesta<>(this.servicioCrearPaciente.ejecutar(paciente));
     }
 }

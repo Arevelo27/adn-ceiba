@@ -1,16 +1,16 @@
 package com.ceiba.consultorio.servicio;
 
-import com.ceiba.consultorio.puerto.repositorio.RepositorioPago;
+import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
 
-public class ServicioEliminarPago {
+public class ServicioEliminarPaciente {
 
-    private final RepositorioPago repositorioPago;
+    private final RepositorioPaciente repositorioPaciente;
 
-    public ServicioEliminarPago(RepositorioPago repositorioPago) {
-        this.repositorioPago = repositorioPago;
+    public ServicioEliminarPaciente(RepositorioPaciente repositorioPaciente) {
+        this.repositorioPaciente = repositorioPaciente;
     }
 
-    public void ejecutar(Long id) {
-        this.repositorioPago.eliminar(id);
+    public void ejecutar(Integer id) {
+        this.repositorioPaciente.eliminar(id);
     }
 }

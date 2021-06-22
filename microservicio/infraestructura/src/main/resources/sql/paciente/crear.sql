@@ -1,2 +1,2 @@
-INSERT INTO entidad (id_entidad,eps,valor,fecha_viculacion,fecha_Pago,activo)
-values (:idEntidad,:eps,:valor,:fechaVinculacion,:fechaPago,:activo)
+INSERT INTO paciente (nombres ,apellidos ,identificacion ,direccion ,telefono ,email)
+values (:nombres,:apellidos,:identificacion,:direccion,:telefono,:email)

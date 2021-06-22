@@ -24,6 +24,16 @@ public class ConsultaControladorEntidadPacienteTest {
     @Test
     public void listar() throws Exception {
         // arrange
+
+        // act - assert
+        String response = mocMvc.perform(get("/entidad_paciente/")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+    }
+
+    @Test
+    public void listarPorCedula() throws Exception {
+        // arrange
         String id = "723023012";
 
         // act - assert

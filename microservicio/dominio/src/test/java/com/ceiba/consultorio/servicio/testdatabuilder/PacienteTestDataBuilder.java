@@ -16,9 +16,9 @@ public class PacienteTestDataBuilder {
         this.idPaciente = 99;
         this.nombres = "PEPE";
         this.apellidos = "CASTILLO";
-        this.identificacion = 99999;
+        this.identificacion = 999999999;
         this.direccion = "CR 44 #12-29";
-        this.telefono = "3109999999";
+        this.telefono = "31099999";
         this.email = "pepe.castillo@gmail.com";
     }
 
@@ -55,6 +55,10 @@ public class PacienteTestDataBuilder {
     public PacienteTestDataBuilder conEmail(String email) {
         this.email = email;
         return this;
+    }
+
+    public Paciente buildActualizar() {
+        return new Paciente(this.identificacion, this.nombres, this.apellidos, this.direccion, this.telefono, this.email);
     }
 
     public Paciente build() {

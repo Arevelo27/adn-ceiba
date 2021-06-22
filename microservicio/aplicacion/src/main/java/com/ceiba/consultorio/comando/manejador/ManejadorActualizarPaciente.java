@@ -1,30 +1,25 @@
 package com.ceiba.consultorio.comando.manejador;
 
-import com.ceiba.ComandoRespuesta;
 import com.ceiba.consultorio.comando.ComandoPaciente;
-import com.ceiba.consultorio.comando.ComandoPago;
 import com.ceiba.consultorio.comando.fabrica.FabricaPaciente;
-import com.ceiba.consultorio.comando.fabrica.FabricaPago;
 import com.ceiba.consultorio.modelo.entidad.Paciente;
-import com.ceiba.consultorio.modelo.entidad.Pago;
-import com.ceiba.consultorio.servicio.ServicioCrearPaciente;
-import com.ceiba.consultorio.servicio.ServicioCrearPago;
-import com.ceiba.manejador.ManejadorComandoRespuesta;
+import com.ceiba.consultorio.servicio.ServicioActualizarPaciente;
+import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ManejadorCrearPaciente implements ManejadorComandoRespuesta<ComandoPaciente, ComandoRespuesta<Long>> {
+public class ManejadorActualizarPaciente implements ManejadorComando<ComandoPaciente> {
 
     private final FabricaPaciente fabricaPaciente;
-    private final ServicioCrearPaciente servicioCrearPaciente;
+    private final ServicioActualizarPaciente servicioActualizarPaciente;
 
-    public ManejadorCrearPaciente(FabricaPaciente fabricaPaciente, ServicioCrearPaciente servicioCrearPaciente) {
+    public ManejadorActualizarPaciente(FabricaPaciente fabricaPaciente, ServicioActualizarPaciente servicioActualizarPaciente) {
         this.fabricaPaciente = fabricaPaciente;
-        this.servicioCrearPaciente = servicioCrearPaciente;
+        this.servicioActualizarPaciente = servicioActualizarPaciente;
     }
 
-    public ComandoRespuesta<Long> ejecutar(ComandoPaciente comandoPaciente) {
-        Paciente paciente = this.fabricaPaciente.crear(comandoPaciente);
-        return new ComandoRespuesta<>(this.servicioCrearPaciente.ejecutar(paciente));
+    public void ejecutar(ComandoPaciente comandoPaciente) {
+        Paciente paciente = this.fabricaPaciente.actualizar(comandoPaciente);
+        this.servicioActualizarPaciente.ejecutar(paciente);
     }
 }

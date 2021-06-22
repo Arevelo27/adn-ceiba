@@ -1,10 +1,10 @@
 package com.ceiba.consultorio.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.consultorio.comando.ComandoPago;
-import com.ceiba.consultorio.comando.manejador.ManejadorActualizarPago;
-import com.ceiba.consultorio.comando.manejador.ManejadorCrearPago;
-import com.ceiba.consultorio.comando.manejador.ManejadorEliminarPago;
+import com.ceiba.consultorio.comando.ComandoPaciente;
+import com.ceiba.consultorio.comando.manejador.ManejadorActualizarPaciente;
+import com.ceiba.consultorio.comando.manejador.ManejadorCrearPaciente;
+import com.ceiba.consultorio.comando.manejador.ManejadorEliminarPaciente;
 import com.ceiba.consultorio.excepcion.ComandoControladorExcepcion;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,44 +12,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/pagos")
-@Api(tags = { "Controlador comando Pago"})
-public class ComandoControladorPago {
-    private final ManejadorCrearPago manejadorCrearPago;
-	private final ManejadorEliminarPago manejadorEliminarPago;
-	private final ManejadorActualizarPago manejadorActualizarPago;
+@RequestMapping("/paciente")
+@Api(tags = {"Controlador comando Paciente"})
+public class ComandoControladorPaciente {
+    private final ManejadorCrearPaciente manejadorCrearPaciente;
+    private final ManejadorEliminarPaciente manejadorEliminarPaciente;
+    private final ManejadorActualizarPaciente manejadorActualizarPaciente;
 
     @Autowired
-    public ComandoControladorPago(ManejadorCrearPago manejadorCrearPago,
-									 ManejadorEliminarPago manejadorEliminarPago,
-									 ManejadorActualizarPago manejadorActualizarPago) {
-        this.manejadorCrearPago = manejadorCrearPago;
-		this.manejadorEliminarPago = manejadorEliminarPago;
-		this.manejadorActualizarPago = manejadorActualizarPago;
+    public ComandoControladorPaciente(ManejadorCrearPaciente manejadorCrearPaciente,
+                                      ManejadorEliminarPaciente manejadorEliminarPaciente,
+                                      ManejadorActualizarPaciente manejadorActualizarPaciente) {
+        this.manejadorCrearPaciente = manejadorCrearPaciente;
+        this.manejadorEliminarPaciente = manejadorEliminarPaciente;
+        this.manejadorActualizarPaciente = manejadorActualizarPaciente;
     }
 
     @PostMapping
-    @ApiOperation("Crear Pago")
-    public ComandoRespuesta<Long> crear(@RequestBody ComandoPago comandoPago) {
-        return manejadorCrearPago.ejecutar(comandoPago);
+    @ApiOperation("Crear Paciente")
+    public ComandoRespuesta<Long> crear(@RequestBody ComandoPaciente comandoPaciente) {
+        return manejadorCrearPaciente.ejecutar(comandoPaciente);
     }
 
-    @DeleteMapping(value="/{id}")
-	@ApiOperation("Eliminar Pago")
-	public void eliminar(@PathVariable Long id) {
-		manejadorEliminarPago.ejecutar(id);
-	}
+    @DeleteMapping(value = "/{id}")
+    @ApiOperation("Eliminar Paciente")
+    public void eliminar(@PathVariable Integer id) {
+        manejadorEliminarPaciente.ejecutar(id);
+    }
 
-	@PutMapping
-	@ApiOperation("Actualizar Pago")
-	public boolean actualizar(@RequestBody ComandoPago comandoPago)
-	{
-	  try {
-		  manejadorActualizarPago.ejecutar(comandoPago);
-	  }catch (Exception e)
-	   {
-		   throw new ComandoControladorExcepcion(e.getMessage(),e);
-	   }
-	  return true;
-	}
+    @PutMapping(value="/{id}")
+    @ApiOperation("Actualizar Paciente")
+    public boolean actualizar(@RequestBody ComandoPaciente comandoPaciente, @PathVariable Integer id) {
+        comandoPaciente.setIdentificacion(id);
+        manejadorActualizarPaciente.ejecutar(comandoPaciente);
+        return true;
+    }
 }

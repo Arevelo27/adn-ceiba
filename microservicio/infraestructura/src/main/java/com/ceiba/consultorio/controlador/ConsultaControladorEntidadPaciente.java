@@ -20,6 +20,12 @@ public class ConsultaControladorEntidadPaciente {
         this.manejadorListarEntidadPaciente = manejadorListarEntidadPaciente;
     }
 
+    @GetMapping
+    @ApiOperation("Listar Entidad Pacientes")
+    public List<DtoEntidadPaciente> listar() {
+        return this.manejadorListarEntidadPaciente.ejecutar();
+    }
+
     @GetMapping("/{identificacion}")
     @ApiOperation("Listar Entidad Pacientes Por Identificacion")
     public List<DtoEntidadPaciente> listarPorCedula(@PathVariable("identificacion") String identificacion) {

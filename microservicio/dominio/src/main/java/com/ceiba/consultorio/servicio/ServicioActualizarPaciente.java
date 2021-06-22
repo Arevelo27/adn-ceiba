@@ -1,31 +1,30 @@
 package com.ceiba.consultorio.servicio;
 
 import com.ceiba.consultorio.modelo.entidad.Paciente;
-import com.ceiba.consultorio.modelo.entidad.Pago;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
-import com.ceiba.consultorio.puerto.repositorio.RepositorioPago;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
+import com.ceiba.dominio.excepcion.ExcepcionNoExiste;
 
 
-public class ServicioCrearPaciente {
+public class ServicioActualizarPaciente {
 
-    public static final String EL_PACIENTE_YA_EXISTE_EN_EL_SISTEMA = "El paciente ya existe en el sistema";
+    public static final String EL_PACIENTE_NO_EXISTE_EN_EL_SISTEMA = "El paciente no se puede actualizar porque, no existe en el sistema";
 
     private final RepositorioPaciente repositorioPaciente;
 
-    public ServicioCrearPaciente(RepositorioPaciente repositorioPaciente) {
+    public ServicioActualizarPaciente(RepositorioPaciente repositorioPaciente) {
         this.repositorioPaciente = repositorioPaciente;
     }
 
-    public Long ejecutar(Paciente paciente) {
+    public void ejecutar(Paciente paciente) {
         validarExistenciaPrevia(paciente);
-        return this.repositorioPaciente.crear(paciente);
+        this.repositorioPaciente.actualizar(paciente);
     }
 
     private void validarExistenciaPrevia(Paciente pago) {
-        boolean existe = this.repositorioPaciente.existe(pago.getIdentificacion());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_PACIENTE_YA_EXISTE_EN_EL_SISTEMA);
+        boolean existe = this.repositorioPaciente.existeincluyendoId(pago.getIdentificacion());
+        if(!existe) {
+            throw new ExcepcionNoExiste(EL_PACIENTE_NO_EXISTE_EN_EL_SISTEMA);
         }
     }
 }

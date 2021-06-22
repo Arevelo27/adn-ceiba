@@ -3,10 +3,7 @@ package com.ceiba.configuracion;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioEntidadPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPago;
-import com.ceiba.consultorio.servicio.ServicioActualizarEntidadPaciente;
-import com.ceiba.consultorio.servicio.ServicioActualizarPago;
-import com.ceiba.consultorio.servicio.ServicioCrearPago;
-import com.ceiba.consultorio.servicio.ServicioEliminarPago;
+import com.ceiba.consultorio.servicio.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,6 +28,22 @@ public class BeanServicio {
     public ServicioActualizarEntidadPaciente servicioActualizarEntidadPaciente(RepositorioEntidadPaciente repositorioEntidadPaciente, RepositorioPaciente repositorioPaciente) {
         return new ServicioActualizarEntidadPaciente(repositorioEntidadPaciente, repositorioPaciente);
     }
+
+    @Bean
+    public ServicioCrearPaciente servicioCrearPaciente(RepositorioPaciente repositorioPaciente) {
+        return new ServicioCrearPaciente(repositorioPaciente);
+    }
+
+    @Bean
+    public ServicioEliminarPaciente servicioEliminarPaciente(RepositorioPaciente repositorioPaciente) {
+        return new ServicioEliminarPaciente(repositorioPaciente);
+    }
+
+    @Bean
+    public ServicioActualizarPaciente servicioActualizarPaciente(RepositorioPaciente repositorioPaciente) {
+        return new ServicioActualizarPaciente(repositorioPaciente);
+    }
+
     
     
 }

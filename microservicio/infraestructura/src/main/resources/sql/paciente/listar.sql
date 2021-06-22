@@ -1,1 +1,1 @@
-select id_entidad,eps,valor,fecha_viculacion,fecha_Pago, activo from entidad
+select id_paciente, nombres, apellidos, identificacion, direccion, telefono, email from paciente

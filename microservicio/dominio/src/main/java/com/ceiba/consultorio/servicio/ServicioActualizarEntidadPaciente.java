@@ -33,11 +33,12 @@ public class ServicioActualizarEntidadPaciente {
         this.repositorioEntidadPaciente.actualizar(pago);
     }
 
-    private void validarExistenciaPreviaPaciente(EntidadPaciente pago) {
+    public boolean validarExistenciaPreviaPaciente(EntidadPaciente pago) {
         boolean existe = this.repositorioPaciente.existe(pago.getPaciente().getIdentificacion());
         if (!existe) {
             throw new ExcepcionDuplicidad(EL_PACIENTE_NO_EXISTE);
         }
+        return true;
     }
 
     public EntidadPaciente validarIdPaciente(EntidadPaciente pago) {
@@ -52,11 +53,12 @@ public class ServicioActualizarEntidadPaciente {
         return pago;
     }
 
-    public void validarExistenciaPreviaPago(EntidadPaciente pago) {
+    public boolean validarExistenciaPreviaPago(EntidadPaciente pago) {
         boolean existe = this.repositorioEntidadPaciente.existeincluyendoId(pago.getPaciente().getIdPaciente());
         if (!existe) {
             throw new ExcepcionNoExiste(EL_PACIENTE_NO_TIENE_PENDIENTE);
         }
+        return true;
     }
 
     public void validarValorPago(EntidadPaciente pago) {

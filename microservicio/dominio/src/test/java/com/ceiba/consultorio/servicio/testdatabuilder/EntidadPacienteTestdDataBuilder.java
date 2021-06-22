@@ -18,9 +18,10 @@ public class EntidadPacienteTestdDataBuilder {
     public EntidadPacienteTestdDataBuilder() {
         Paciente p = new Paciente();
         p.setIdPaciente(22);
+        p.setIdentificacion(11111111);
         this.idEntidadPaciente = 99999L;
         this.paciente = p;
-        this.valor = 99.9;
+        this.valor = 0.0;
         this.fechaPago = LocalDateTime.now();
         this.activo = 1;
     }

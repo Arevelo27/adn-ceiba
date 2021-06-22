@@ -14,10 +14,10 @@ public class ComandoPacienteTestDataBuilder {
     private String email;
 
     public ComandoPacienteTestDataBuilder() {
-        this.idPaciente = 1;
+        this.idPaciente = 2;
         this.nombres = "CARLOS";
         this.apellidos = "RUIZ";
-        this.identificacion = 11111111;
+        this.identificacion = 11111113;
         this.direccion = "CR 44A#12-29";
         this.telefono = "991855511";
         this.email = "carlos@gmail.com";

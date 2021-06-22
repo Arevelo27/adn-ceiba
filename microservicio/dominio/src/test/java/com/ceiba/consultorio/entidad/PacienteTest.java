@@ -92,7 +92,7 @@ public class PacienteTest {
     @Test
     public void validarActualizacionPagoTest() {
         // arrange
-        PacienteTestDataBuilder pacienteTestDataBuilder = new PacienteTestDataBuilder().conIdentificacion(99999);
+        PacienteTestDataBuilder pacienteTestDataBuilder = new PacienteTestDataBuilder().conIdentificacion(99999888);
 
         //act
         Paciente paciente = pacienteTestDataBuilder.build();

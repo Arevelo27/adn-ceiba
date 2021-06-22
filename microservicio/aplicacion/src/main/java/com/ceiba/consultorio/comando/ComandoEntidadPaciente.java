@@ -35,4 +35,12 @@ public class ComandoEntidadPaciente {
                 ", activo='" + activo + '\'' +
                 '}';
     }
+
+    public ComandoEntidadPaciente(Long idEntidadPaciente, Paciente paciente, Double valor, LocalDateTime fechaPago, Integer activo) {
+        this.idEntidadPaciente = idEntidadPaciente;
+        this.paciente = paciente;
+        this.valor = valor;
+        this.fechaPago = fechaPago;
+        this.activo = activo;
+    }
 }

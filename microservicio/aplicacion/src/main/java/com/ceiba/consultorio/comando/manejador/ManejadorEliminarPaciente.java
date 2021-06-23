@@ -1,7 +1,6 @@
 package com.ceiba.consultorio.comando.manejador;
 
 import com.ceiba.consultorio.servicio.ServicioEliminarPaciente;
-import com.ceiba.consultorio.servicio.ServicioEliminarPago;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 

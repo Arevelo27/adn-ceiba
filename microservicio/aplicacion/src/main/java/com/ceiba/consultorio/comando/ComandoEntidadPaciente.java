@@ -1,6 +1,5 @@
 package com.ceiba.consultorio.comando;
 
-import com.ceiba.consultorio.modelo.entidad.Entidad;
 import com.ceiba.consultorio.modelo.entidad.Paciente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

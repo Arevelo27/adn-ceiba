@@ -1,9 +1,7 @@
 package com.ceiba.consultorio.comando.fabrica;
 
 import com.ceiba.consultorio.comando.ComandoPaciente;
-import com.ceiba.consultorio.comando.ComandoPago;
 import com.ceiba.consultorio.modelo.entidad.Paciente;
-import com.ceiba.consultorio.modelo.entidad.Pago;
 import org.springframework.stereotype.Component;
 
 @Component

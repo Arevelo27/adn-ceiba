@@ -2,7 +2,6 @@ package com.ceiba.consultorio.controlador;
 
 import com.ceiba.consultorio.comando.ComandoEntidadPaciente;
 import com.ceiba.consultorio.comando.manejador.ManejadorActualizarEntidadPaciente;
-import com.ceiba.consultorio.excepcion.ComandoControladorExcepcion;
 import com.ceiba.consultorio.modelo.entidad.Paciente;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

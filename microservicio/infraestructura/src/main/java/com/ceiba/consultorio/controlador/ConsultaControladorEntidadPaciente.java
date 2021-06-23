@@ -2,10 +2,12 @@ package com.ceiba.consultorio.controlador;
 
 import com.ceiba.consultorio.consulta.ManejadorListarEntidadPaciente;
 import com.ceiba.consultorio.modelo.dto.DtoEntidadPaciente;
-import com.ceiba.consultorio.modelo.dto.DtoPago;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

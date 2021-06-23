@@ -1,9 +1,7 @@
 package com.ceiba.consultorio.servicio;
 
 import com.ceiba.consultorio.modelo.entidad.Paciente;
-import com.ceiba.consultorio.modelo.entidad.Pago;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
-import com.ceiba.consultorio.puerto.repositorio.RepositorioPago;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 
 

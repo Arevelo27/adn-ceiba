@@ -1,7 +1,6 @@
 package com.ceiba.consultorio.adaptador.dao;
 
 import com.ceiba.consultorio.modelo.dto.DtoPaciente;
-import com.ceiba.consultorio.puerto.dao.DaoEntidadPaciente;
 import com.ceiba.consultorio.puerto.dao.DaoPaciente;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;

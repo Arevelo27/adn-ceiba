@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/pagos")
-@Api(tags = { "Controlador comando Pago"})
+@Api(tags = {"Controlador comando Pago"})
 public class ComandoControladorPago {
     private final ManejadorCrearPago manejadorCrearPago;
-	private final ManejadorEliminarPago manejadorEliminarPago;
-	private final ManejadorActualizarPago manejadorActualizarPago;
+    private final ManejadorEliminarPago manejadorEliminarPago;
+    private final ManejadorActualizarPago manejadorActualizarPago;
 
     @Autowired
     public ComandoControladorPago(ManejadorCrearPago manejadorCrearPago,
-									 ManejadorEliminarPago manejadorEliminarPago,
-									 ManejadorActualizarPago manejadorActualizarPago) {
+                                  ManejadorEliminarPago manejadorEliminarPago,
+                                  ManejadorActualizarPago manejadorActualizarPago) {
         this.manejadorCrearPago = manejadorCrearPago;
-		this.manejadorEliminarPago = manejadorEliminarPago;
-		this.manejadorActualizarPago = manejadorActualizarPago;
+        this.manejadorEliminarPago = manejadorEliminarPago;
+        this.manejadorActualizarPago = manejadorActualizarPago;
     }
 
     @PostMapping
@@ -34,22 +34,16 @@ public class ComandoControladorPago {
         return manejadorCrearPago.ejecutar(comandoPago);
     }
 
-    @DeleteMapping(value="/{id}")
-	@ApiOperation("Eliminar Pago")
-	public void eliminar(@PathVariable Long id) {
-		manejadorEliminarPago.ejecutar(id);
-	}
+    @DeleteMapping(value = "/{id}")
+    @ApiOperation("Eliminar Pago")
+    public void eliminar(@PathVariable Long id) {
+        manejadorEliminarPago.ejecutar(id);
+    }
 
-	@PutMapping
-	@ApiOperation("Actualizar Pago")
-	public boolean actualizar(@RequestBody ComandoPago comandoPago)
-	{
-	  try {
-		  manejadorActualizarPago.ejecutar(comandoPago);
-	  }catch (Exception e)
-	   {
-		   throw new ComandoControladorExcepcion(e.getMessage(),e);
-	   }
-	  return true;
-	}
+    @PutMapping
+    @ApiOperation("Actualizar Pago")
+    public boolean actualizar(@RequestBody ComandoPago comandoPago) {
+        manejadorActualizarPago.ejecutar(comandoPago);
+        return true;
+    }
 }

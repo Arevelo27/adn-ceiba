@@ -5,7 +5,6 @@ import com.ceiba.consultorio.comando.ComandoPaciente;
 import com.ceiba.consultorio.comando.manejador.ManejadorActualizarPaciente;
 import com.ceiba.consultorio.comando.manejador.ManejadorCrearPaciente;
 import com.ceiba.consultorio.comando.manejador.ManejadorEliminarPaciente;
-import com.ceiba.consultorio.excepcion.ComandoControladorExcepcion;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

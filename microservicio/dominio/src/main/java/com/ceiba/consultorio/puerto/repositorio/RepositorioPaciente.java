@@ -1,8 +1,6 @@
 package com.ceiba.consultorio.puerto.repositorio;
 
-import com.ceiba.consultorio.modelo.entidad.EntidadPaciente;
 import com.ceiba.consultorio.modelo.entidad.Paciente;
-import com.ceiba.consultorio.modelo.entidad.Pago;
 
 public interface RepositorioPaciente {
     /**

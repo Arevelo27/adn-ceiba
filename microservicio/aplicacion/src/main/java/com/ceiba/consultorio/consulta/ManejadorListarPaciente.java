@@ -1,8 +1,6 @@
 package com.ceiba.consultorio.consulta;
 
-import com.ceiba.consultorio.modelo.dto.DtoEntidadPaciente;
 import com.ceiba.consultorio.modelo.dto.DtoPaciente;
-import com.ceiba.consultorio.puerto.dao.DaoEntidadPaciente;
 import com.ceiba.consultorio.puerto.dao.DaoPaciente;
 import org.springframework.stereotype.Component;
 

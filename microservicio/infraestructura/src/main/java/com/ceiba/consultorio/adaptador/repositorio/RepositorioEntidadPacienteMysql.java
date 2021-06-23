@@ -38,7 +38,6 @@ public class RepositorioEntidadPacienteMysql implements RepositorioEntidadPacien
 
     @Override
     public void actualizar(EntidadPaciente entidadPaciente) {
-        //this.customNamedParameterJdbcTemplate.actualizar(entidadPaciente, sqlActualizar);
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue(CAMPO_VALOR, entidadPaciente.getValor());
         paramSource.addValue(CAMPO_FECHA_PAGO, entidadPaciente.getFechaPago());

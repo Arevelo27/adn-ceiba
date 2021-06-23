@@ -5,7 +5,6 @@ import com.ceiba.consultorio.comando.ComandoPago;
 import com.ceiba.consultorio.comando.manejador.ManejadorActualizarPago;
 import com.ceiba.consultorio.comando.manejador.ManejadorCrearPago;
 import com.ceiba.consultorio.comando.manejador.ManejadorEliminarPago;
-import com.ceiba.consultorio.excepcion.ComandoControladorExcepcion;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

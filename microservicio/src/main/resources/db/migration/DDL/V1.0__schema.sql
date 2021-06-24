@@ -10,6 +10,7 @@ CREATE TABLE pagos (
     id_Pago int(11) NOT NULL AUTO_INCREMENT,
 	documento_Identificacion_deudor int(11) NOT NULL,
     codigo_factura VARCHAR(10) NOT NULL,
+    tipo_examen VARCHAR(150) NOT NULL,
 	valor_adeudado DECIMAL(20,2) NOT NULL,
 	valor_pagado DECIMAL(20,2),
 	fecha_vencimiento_pago VARCHAR(10) NOT NULL,

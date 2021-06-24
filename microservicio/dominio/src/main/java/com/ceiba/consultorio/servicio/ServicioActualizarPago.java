@@ -11,40 +11,37 @@ import java.time.format.DateTimeFormatter;
 public class ServicioActualizarPago {
 
     public static final String EL_PAGO_NO_EXISTE_EN_EL_SISTEMA = "El pago no se puede actualizar porque, no existe en el sistema";
-    private static final String FORMATO_FECHA =  "yyyy-MM-dd";
-    private static final int HORA_LIMITE =  18;
-    private static final int DIA_LIMITE =  15;
+    private static final String FORMATO_FECHA = "yyyy-MM-dd";
+    private static final int HORA_LIMITE = 17;
+    private static final int DIA_LIMITE = 15;
     private final RepositorioPago repositorioPago;
 
     public ServicioActualizarPago(RepositorioPago repositorioPago) {
         this.repositorioPago = repositorioPago;
     }
 
-    public void ejecutar(Pago pago)
-    {
+    public void ejecutar(Pago pago) {
         validarExistenciaPrevia(pago);
-        pago  = validarFechaPago(pago);
-        pago  = validarHoraPago(pago);
+        pago = validarFechaPago(pago);
+        pago = validarHoraPago(pago);
         this.repositorioPago.actualizar(pago);
     }
 
     public void validarExistenciaPrevia(Pago pago) {
-        boolean existe = this.repositorioPago.existeincluyendoId(pago.getIdPago(),pago.getCodigoFactura());
+        boolean existe = this.repositorioPago.existeincluyendoId(pago.getIdPago(), pago.getCodigoFactura());
 
-        if(!existe)
-        {
+        if (!existe) {
             throw new ExcepcionNoExiste(EL_PAGO_NO_EXISTE_EN_EL_SISTEMA);
         }
     }
 
-    public Pago validarFechaPago(Pago pago){
+    public Pago validarFechaPago(Pago pago) {
         LocalDate fechaPago = LocalDate.parse(pago.getFechaPago());
         int dia = fechaPago.getDayOfMonth();
 
-        if(dia>DIA_LIMITE)
-        {
-            double incremento = Double.parseDouble(pago.getValorAdeudado())+(Double.parseDouble(pago.getValorAdeudado()))*0.1;
-            pago.setValorAdeudado(incremento+"");
+        if (dia > DIA_LIMITE) {
+            double incremento = Double.parseDouble(pago.getValorAdeudado()) + (Double.parseDouble(pago.getValorAdeudado())) * 0.1;
+            pago.setValorPagado(incremento + "");
         }
 
         return pago;
@@ -54,8 +51,7 @@ public class ServicioActualizarPago {
         LocalTime horaActual = LocalTime.now();
         int hora = horaActual.getHour();
 
-        if(hora>=HORA_LIMITE)
-        {
+        if (hora >= HORA_LIMITE) {
             LocalDate fechaPago = LocalDate.parse(pago.getFechaPago());
             fechaPago = fechaPago.plusDays(1);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern(FORMATO_FECHA);

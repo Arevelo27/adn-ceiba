@@ -32,7 +32,7 @@ public class ServicioActualizarPagoTest {
         Pago pagoRespueta = servicioActualizarPago.validarFechaPago(pago);
 
         // act - assert
-        assertEquals(VALOR_INCREMENTO_ESPERADO,pagoRespueta.getValorAdeudado());
+        assertEquals(VALOR_INCREMENTO_ESPERADO,pagoRespueta.getValorPagado());
     }
 
     @Test

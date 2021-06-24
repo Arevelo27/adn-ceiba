@@ -14,6 +14,7 @@ public class ComandoPago {
     private Long idPago;
     private String documentoIdentificacionDeudor;
     private String codigoFactura;
+    private String tipoExamen;
     private double valorAdeudado;
     private double valorPagado;
     private String fechaVencimientoPago;
@@ -25,6 +26,7 @@ public class ComandoPago {
                 "idPago=" + idPago +
                 ", documentoIdentificacionDeudor='" + documentoIdentificacionDeudor + '\'' +
                 ", codigoFactura='" + codigoFactura + '\'' +
+                ", tipoExamen='" + tipoExamen + '\'' +
                 ", valorAdeudado=" + valorAdeudado +
                 ", valorPagado=" + valorPagado +
                 ", fechaVencimientoPago='" + fechaVencimientoPago + '\'' +

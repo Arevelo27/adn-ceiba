@@ -1,18 +1,12 @@
-insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,
-valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago)
-values(1,'987654321','FV-1982',500000,0,'2020-01-30','');
-insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,
-valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago)
-values(2,'987654321','FV-1983',300000,0,'2020-02-28','');
-insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,
-valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago)
-values(3,'123456789','FV-1984',500000,0,'2020-01-30','');
-insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,
-valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago)
-values(4,'123456789','FV-1985',500000,0,'2020-02-28','');
-insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,
-valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago)
-values(5,'1111758458','FV-1986',1000000,0,'2020-02-28','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(1,'72302301','FV-1982','Anestesiología',500000,0,'2020-01-30','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(2,'72302301','FV-1983','Cardiología',300000,0,'2020-02-28','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(3,'72301302','FV-1984','Cirugía General',500000,0,'2020-01-30','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(4,'72301302','FV-1985','Neurología',500000,0,'2020-02-28','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(5,'72301303','FV-1986','Oftalmología',1000000,0,'2020-02-28','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(6,'72301304','FV-1986','Gastroenterología',1000000,0,'2020-02-28','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(7,'72301304','FV-1986','Endoscopia',1000000,0,'2020-02-28','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(8,'72301305','FV-1986','Anestesiología',1000000,0,'2020-02-28','');
+insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(9,'72301305','FV-1986','Cardiología',1000000,0,'2020-02-28','');
 
 ---ENTIDAD---
 INSERT INTO entidad (eps) values ('Eps Sura');

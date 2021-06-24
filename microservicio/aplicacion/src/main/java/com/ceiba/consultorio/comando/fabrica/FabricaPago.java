@@ -9,7 +9,7 @@ public class FabricaPago {
     public Pago crear(ComandoPago comandoPago){
 
         return new Pago(comandoPago.getIdPago(),comandoPago.getDocumentoIdentificacionDeudor(),
-                        comandoPago.getCodigoFactura(), comandoPago.getValorAdeudado()+"",
+                        comandoPago.getCodigoFactura(), comandoPago.getTipoExamen(),comandoPago.getValorAdeudado()+"",
                         comandoPago.getValorPagado()+"", comandoPago.getFechaVencimientoPago(),
                         comandoPago.getFechaPago());
     }

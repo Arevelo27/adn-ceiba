@@ -9,6 +9,7 @@ public class DtoPago {
     private Long idPago;
     private String documentoIdentificacionDeudor;
     private String codigoFactura;
+    private String tipoExamen;
     private String valorAdeudado;
     private String valorPagado;
     private String fechaVencimientoPago;

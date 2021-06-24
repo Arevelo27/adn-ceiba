@@ -21,25 +21,25 @@ public class RepositorioPagoMysql implements RepositorioPago {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
-    @SqlStatement(namespace= NAMESPACE, value=CREAR)
+    @SqlStatement(namespace = NAMESPACE, value = CREAR)
     private static String sqlCrear;
 
-    @SqlStatement(namespace= NAMESPACE, value=ACTUALIZAR)
+    @SqlStatement(namespace = NAMESPACE, value = ACTUALIZAR)
     private static String sqlActualizar;
 
-    @SqlStatement(namespace= NAMESPACE, value=ELIMINAR)
+    @SqlStatement(namespace = NAMESPACE, value = ELIMINAR)
     private static String sqlEliminar;
 
-    @SqlStatement(namespace= NAMESPACE, value=EXISTE)
+    @SqlStatement(namespace = NAMESPACE, value = EXISTE)
     private static String sqlExiste;
 
-    @SqlStatement(namespace= NAMESPACE, value=EXISTE_EXCLUYE_ID)
+    @SqlStatement(namespace = NAMESPACE, value = EXISTE_EXCLUYE_ID)
     private static String sqlExisteExcluyendoId;
 
-    @SqlStatement(namespace= NAMESPACE, value=EXISTE_INCLUYE_ID)
+    @SqlStatement(namespace = NAMESPACE, value = EXISTE_INCLUYE_ID)
     private static String sqlExisteIncluyendoId;
 
-    @SqlStatement(namespace= NAMESPACE, value=EXISTE_INCLUYE_ID)
+    @SqlStatement(namespace = NAMESPACE, value = EXISTE_INCLUYE_ID)
     private static String sqlExisteId;
 
     public RepositorioPagoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
@@ -64,12 +64,18 @@ public class RepositorioPagoMysql implements RepositorioPago {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue(CAMPO_CODIGO_FACTURA, codigoFactura);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
     }
 
     @Override
     public void actualizar(Pago pago) {
-        this.customNamedParameterJdbcTemplate.actualizar(pago, sqlActualizar);
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue(CAMPO_ID_PAGO, pago.getIdPago());
+        paramSource.addValue("valorPagado", pago.getValorPagado());
+        paramSource.addValue("valorAdeudado", pago.getValorAdeudado());
+        paramSource.addValue("fechaPago", pago.getFechaPago());
+        //this.customNamedParameterJdbcTemplate.actualizar(pago, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlActualizar, paramSource);
     }
 
     @Override
@@ -78,7 +84,7 @@ public class RepositorioPagoMysql implements RepositorioPago {
         paramSource.addValue(CAMPO_ID_PAGO, id);
         paramSource.addValue(CAMPO_CODIGO_FACTURA, codigoFactura);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId, paramSource, Boolean.class);
     }
 
     @Override
@@ -87,6 +93,6 @@ public class RepositorioPagoMysql implements RepositorioPago {
         paramSource.addValue(CAMPO_ID_PAGO, id);
         paramSource.addValue(CAMPO_CODIGO_FACTURA, codigoFactura);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteIncluyendoId,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteIncluyendoId, paramSource, Boolean.class);
     }
 }

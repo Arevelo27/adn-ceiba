@@ -7,6 +7,7 @@ public class ComandoPagoTestDataBuilder {
     private Long idPago;
     private String documentoIdentificacionDeudor;
     private String codigoFactura;
+    private String tipoExamen;
     private double valorAdeudado;
     private double valorPagado;
     private String fechaVencimientoPago;
@@ -16,6 +17,7 @@ public class ComandoPagoTestDataBuilder {
         this.idPago = 99999L;
         this.documentoIdentificacionDeudor = "123456789";
         this.codigoFactura = "FV-9898";
+        this.tipoExamen = "Cardiología";
         this.valorAdeudado = 1000000;
         this.valorPagado = 0;
         this.fechaVencimientoPago = "2020-03-30";
@@ -59,7 +61,7 @@ public class ComandoPagoTestDataBuilder {
 
     public ComandoPago build() {
         return new ComandoPago(this.idPago,this.documentoIdentificacionDeudor,
-                this.codigoFactura,this.valorAdeudado,
+                this.codigoFactura,this.tipoExamen,this.valorAdeudado,
                 this.valorPagado,this.fechaVencimientoPago,
                 this.fechaPago);
     }

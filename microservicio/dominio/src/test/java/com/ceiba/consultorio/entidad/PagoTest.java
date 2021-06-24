@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNull;
 public class PagoTest {
     private static final String SE_DEBE_INGRESAR_DOCUMENTO_IDENTIFICACION = "Se debe ingresar el documento de identificación";
 
-    @Test(expected=ExcepcionValorObligatorio.class)
+    @Test(expected = ExcepcionValorObligatorio.class)
     public void validarIdentificacionTest() {
         // arrange
         PagoTestDataBuilder pagoTestDataBuilder =
@@ -22,13 +22,13 @@ public class PagoTest {
         Pago pago = pagoTestDataBuilder.build();
 
         //assert
-        Pago pagoTest = new Pago(pago.getIdPago(),pago.getDocumentoIdentificacionDeudor(),
-                                 pago.getCodigoFactura(),pago.getValorAdeudado(),pago.getValorPagado(),
-                                 pago.getFechaVencimientoPago(),pago.getFechaPago());
+        Pago pagoTest = new Pago(pago.getIdPago(), pago.getDocumentoIdentificacionDeudor(),
+                pago.getCodigoFactura(), pago.getTipoExamen(), pago.getValorAdeudado(), pago.getValorPagado(),
+                pago.getFechaVencimientoPago(), pago.getFechaPago());
 
-     }
+    }
 
-    @Test(expected=ExcepcionValorObligatorio.class)
+    @Test(expected = ExcepcionValorObligatorio.class)
     public void validarCodigoFacturaTest() {
         // arrange
         PagoTestDataBuilder pagoTestDataBuilder =
@@ -38,13 +38,13 @@ public class PagoTest {
         Pago pago = pagoTestDataBuilder.build();
 
         //assert
-        Pago pagoTest = new Pago(pago.getIdPago(),pago.getDocumentoIdentificacionDeudor(),
-                pago.getCodigoFactura(),pago.getValorAdeudado(),pago.getValorPagado(),
-                pago.getFechaVencimientoPago(),pago.getFechaPago());
+        Pago pagoTest = new Pago(pago.getIdPago(), pago.getDocumentoIdentificacionDeudor(),
+                pago.getCodigoFactura(), pago.getTipoExamen(), pago.getValorAdeudado(), pago.getValorPagado(),
+                pago.getFechaVencimientoPago(), pago.getFechaPago());
 
     }
 
-    @Test(expected=ExcepcionValorObligatorio.class)
+    @Test(expected = ExcepcionValorObligatorio.class)
     public void validarValorAdeudadoTest() {
         // arrange
         PagoTestDataBuilder pagoTestDataBuilder =
@@ -54,13 +54,13 @@ public class PagoTest {
         Pago pago = pagoTestDataBuilder.build();
 
         //assert
-        Pago pagoTest = new Pago(pago.getIdPago(),pago.getDocumentoIdentificacionDeudor(),
-                pago.getCodigoFactura(),pago.getValorAdeudado(),pago.getValorPagado(),
-                pago.getFechaVencimientoPago(),pago.getFechaPago());
+        Pago pagoTest = new Pago(pago.getIdPago(), pago.getDocumentoIdentificacionDeudor(),
+                pago.getCodigoFactura(), pago.getTipoExamen(), pago.getValorAdeudado(), pago.getValorPagado(),
+                pago.getFechaVencimientoPago(), pago.getFechaPago());
 
     }
 
-    @Test(expected=ExcepcionValorObligatorio.class)
+    @Test(expected = ExcepcionValorObligatorio.class)
     public void validarFechaVencimientoPagoTest() {
         // arrange
         PagoTestDataBuilder pagoTestDataBuilder =
@@ -70,9 +70,9 @@ public class PagoTest {
         Pago pago = pagoTestDataBuilder.build();
 
         //assert
-        Pago pagoTest = new Pago(pago.getIdPago(),pago.getDocumentoIdentificacionDeudor(),
-                pago.getCodigoFactura(),pago.getValorAdeudado(),pago.getValorPagado(),
-                pago.getFechaVencimientoPago(),pago.getFechaPago());
+        Pago pagoTest = new Pago(pago.getIdPago(), pago.getDocumentoIdentificacionDeudor(),
+                pago.getCodigoFactura(), pago.getTipoExamen(), pago.getValorAdeudado(), pago.getValorPagado(),
+                pago.getFechaVencimientoPago(), pago.getFechaPago());
 
     }
 
@@ -86,9 +86,9 @@ public class PagoTest {
         Pago pago = pagoTestDataBuilder.build();
 
         //assert
-        Pago pagoTest = new Pago(pago.getIdPago(),pago.getDocumentoIdentificacionDeudor(),
-                pago.getCodigoFactura(),pago.getValorAdeudado(),pago.getValorPagado(),
-                pago.getFechaVencimientoPago(),pago.getFechaPago());
+        Pago pagoTest = new Pago(pago.getIdPago(), pago.getDocumentoIdentificacionDeudor(),
+                pago.getCodigoFactura(), pago.getTipoExamen(), pago.getValorAdeudado(), pago.getValorPagado(),
+                pago.getFechaVencimientoPago(), pago.getFechaPago());
 
         assertNotNull(pagoTest);
     }

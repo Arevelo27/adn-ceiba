@@ -7,6 +7,7 @@ public class PagoTestDataBuilder {
     private Long idPago;
     private String documentoIdentificacionDeudor;
     private String codigoFactura;
+    private String tipoExamen;
     private String valorAdeudado;
     private String valorPagado;
     private String fechaVencimientoPago;
@@ -16,6 +17,7 @@ public class PagoTestDataBuilder {
         this.idPago = 99999L;
         this.documentoIdentificacionDeudor = "123456789";
         this.codigoFactura = "FV-9898";
+        this.tipoExamen = "Cardiología";
         this.valorAdeudado = "1000000";
         this.valorPagado = "";
         this.fechaVencimientoPago = "2020-03-30";
@@ -60,7 +62,7 @@ public class PagoTestDataBuilder {
     public Pago build()
     {
         return new Pago(this.idPago,this.documentoIdentificacionDeudor,
-                        this.codigoFactura,this.valorAdeudado,
+                        this.codigoFactura,this.tipoExamen,this.valorAdeudado,
                         this.valorPagado,this.fechaVencimientoPago,
                         this.fechaPago);
     }

@@ -1,11 +1,11 @@
 package com.ceiba.consultorio.servicio;
 
-import com.ceiba.core.BasePrueba;
 import com.ceiba.consultorio.modelo.entidad.EntidadPaciente;
 import com.ceiba.consultorio.modelo.entidad.Paciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioEntidadPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
 import com.ceiba.consultorio.servicio.testdatabuilder.EntidadPacienteTestdDataBuilder;
+import com.ceiba.consultorio.servicio.testdatabuilder.PacienteTestDataBuilder;
 import com.ceiba.core.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionNoExiste;
 import org.junit.Test;
@@ -43,7 +43,7 @@ public class ServicioActualizarEntidadPacienteTest {
         Mockito.when(servicioActualizarEntidadPaciente.validarExistenciaPreviaPaciente(entidadPaciente)).thenReturn(Boolean.TRUE);
 
         // assert
-        assertTrue(entidadPacienteRespuesta.getPaciente().getIdentificacion().equals(IDENTIFICACION));
+        assertEquals(entidadPacienteRespuesta.getPaciente().getIdentificacion(), IDENTIFICACION);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class ServicioActualizarEntidadPacienteTest {
         Mockito.when(servicioActualizarEntidadPaciente.validarIdPaciente(entidadPaciente)).thenReturn(entidadPacienteRespuesta);
 
         // assert
-        assertTrue(entidadPacienteRespuesta.getIdEntidadPaciente().equals(ID_PAGO));
+        assertEquals(entidadPacienteRespuesta.getIdEntidadPaciente(),ID_PAGO);
     }
 
     @Test
@@ -112,9 +112,8 @@ public class ServicioActualizarEntidadPacienteTest {
     @Test(expected= ExcepcionNoExiste.class)
     public void actualizarPagoNoExistenteTest() throws Exception {
         // arrange
-        Paciente paciente = new Paciente();
-        paciente.setIdentificacion(11111111);
-        paciente.setIdPaciente(222);
+        PacienteTestDataBuilder pacienteTestDataBuilder = new PacienteTestDataBuilder().conIdentificacion(11111111).conIdPaciente(22);
+        Paciente paciente = pacienteTestDataBuilder.build();
 
         EntidadPacienteTestdDataBuilder entidadPacienteTestdDataBuilder =
                 new EntidadPacienteTestdDataBuilder().conPaciente(paciente).conValor(0.0);
@@ -134,9 +133,8 @@ public class ServicioActualizarEntidadPacienteTest {
     @Test
     public void actualizarPagoTest(){
         // arrange
-        Paciente paciente = new Paciente();
-        paciente.setIdentificacion(11111111);
-        paciente.setIdPaciente(222);
+        PacienteTestDataBuilder pacienteTestDataBuilder = new PacienteTestDataBuilder().conIdentificacion(11111111).conIdPaciente(22);
+        Paciente paciente = pacienteTestDataBuilder.build();
 
         EntidadPacienteTestdDataBuilder entidadPacienteTestdDataBuilder =
                 new EntidadPacienteTestdDataBuilder().conPaciente(paciente).conValor(80000.0);
@@ -148,8 +146,6 @@ public class ServicioActualizarEntidadPacienteTest {
         //act
         EntidadPaciente entidadPacienteRespuesta = entidadPacienteTestdDataBuilder.conPaciente(paciente).build();
         when(repositorioPaciente.existe(Mockito.anyInt())).thenReturn(Boolean.TRUE);
-        //when(servicioActualizarEntidadPaciente.validarIdPaciente(entidadPaciente)).thenReturn(entidadPacienteRespuesta);
-        //when(servicioActualizarEntidadPaciente.validarExistenciaPreviaPago(entidadPacienteRespuesta)).thenReturn(Boolean.TRUE);
         when(repositorioEntidadPaciente.existeincluyendoId(Mockito.anyInt())).thenReturn(true);
         servicioActualizarEntidadPaciente.ejecutar(entidadPacienteRespuesta);
 

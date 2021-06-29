@@ -27,7 +27,7 @@ public class ConsultaControladorPaciente {
 
     @GetMapping("/{identificacion}")
     @ApiOperation("Listar Pacientes por identificacion")
-    public List<DtoPaciente> listarPorCedula(@PathVariable("identificacion") String identificacion) {
+    public DtoPaciente listarPorCedula(@PathVariable("identificacion") String identificacion) {
         return this.manejadorListarPaciente.ejecutar(identificacion);
     }
 }

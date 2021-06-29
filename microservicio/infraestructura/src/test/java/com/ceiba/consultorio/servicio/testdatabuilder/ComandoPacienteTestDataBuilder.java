@@ -17,10 +17,15 @@ public class ComandoPacienteTestDataBuilder {
         this.idPaciente = 2;
         this.nombres = "CARLOS";
         this.apellidos = "RUIZ";
-        this.identificacion = 11111113;
+        this.identificacion = 11111114;
         this.direccion = "CR 44A#12-29";
         this.telefono = "991855511";
         this.email = "carlos@gmail.com";
+    }
+
+    public ComandoPacienteTestDataBuilder conIdentificacion(Integer identificacion) {
+        this.identificacion = identificacion;
+        return this;
     }
 
     public ComandoPaciente build() {

@@ -2,6 +2,7 @@ package com.ceiba.consultorio.servicio;
 
 import com.ceiba.consultorio.modelo.entidad.Paciente;
 import com.ceiba.consultorio.modelo.entidad.Pago;
+import com.ceiba.consultorio.puerto.repositorio.RepositorioEntidadPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPago;
 import com.ceiba.consultorio.servicio.testdatabuilder.PacienteTestDataBuilder;
@@ -17,13 +18,14 @@ public class ServicioEliminarPacientesTest {
     private static final Long ID_PACIENTE =  99l;
 
     @Test
-    public void eliminarPagoTest() throws Exception {
+    public void eliminarPacienteTest() throws Exception {
         // arrange
         PacienteTestDataBuilder PagoTestDataBuilder = new PacienteTestDataBuilder().conIdPaciente(99);
 
         RepositorioPaciente repositorioPaciente = Mockito.mock(RepositorioPaciente.class);
+        RepositorioEntidadPaciente repositorioEntidadPaciente = Mockito.mock(RepositorioEntidadPaciente.class);
         ServicioCrearPaciente servicioCrearPaciente = new ServicioCrearPaciente(repositorioPaciente);
-        ServicioEliminarPaciente servicioEliminarPaciente = new ServicioEliminarPaciente(repositorioPaciente);
+        ServicioEliminarPaciente servicioEliminarPaciente = new ServicioEliminarPaciente(repositorioPaciente, repositorioEntidadPaciente);
 
         //act
         Paciente paciente = PagoTestDataBuilder.build();

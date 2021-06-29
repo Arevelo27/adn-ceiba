@@ -41,7 +41,6 @@ public class Paciente {
 
     public Paciente(Integer idPaciente, String nombres, String apellidos, Integer identificacion, String direccion, String telefono, String email) {
 
-        validarObligatorio(idPaciente, MENSAJES_CAMPO_OBLIGATORIO_ID_PACIENTE);
         validarObligatorio(nombres, MENSAJES_CAMPO_OBLIGATORIO_NOMBRES);
         validarObligatorio(apellidos, MENSAJES_CAMPO_OBLIGATORIO_APELLIDOS);
         validarObligatorio(identificacion, MENSAJES_CAMPO_OBLIGATORIO_DOC_IDENTIFICACION);

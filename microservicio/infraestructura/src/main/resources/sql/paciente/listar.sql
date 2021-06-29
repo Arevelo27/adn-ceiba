@@ -1,1 +1,1 @@
-select id_paciente, nombres, apellidos, identificacion, direccion, telefono, email from paciente
+select id_paciente, nombres, apellidos, identificacion, direccion, telefono, email from paciente order by id_paciente

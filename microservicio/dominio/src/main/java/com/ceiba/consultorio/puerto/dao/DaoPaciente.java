@@ -16,5 +16,5 @@ public interface DaoPaciente {
      * Permite listar paciente por identificación
      * @return los pacientes
      */
-    List<DtoPaciente> listarPorCedula(String docIdentificacion);
+    DtoPaciente listarPorCedula(String docIdentificacion);
 }

@@ -39,7 +39,7 @@ public class ComandoControladorPaciente {
         manejadorEliminarPaciente.ejecutar(id);
     }
 
-    @PutMapping(value="/{id}")
+    @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar Paciente")
     public boolean actualizar(@RequestBody ComandoPaciente comandoPaciente, @PathVariable Integer id) {
         comandoPaciente.setIdentificacion(id);

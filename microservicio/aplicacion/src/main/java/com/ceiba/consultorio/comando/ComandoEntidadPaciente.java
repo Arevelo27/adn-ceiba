@@ -1,5 +1,6 @@
 package com.ceiba.consultorio.comando;
 
+import com.ceiba.consultorio.modelo.entidad.Entidad;
 import com.ceiba.consultorio.modelo.entidad.Paciente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,8 @@ public class ComandoEntidadPaciente {
 
     private Long idEntidadPaciente;
     private Paciente paciente;
-    private Integer entidad;
+    private Entidad entidad;
+    private String nombreEntidad;
     private Double valor;
     private LocalDateTime fechaVinculacion;
     private LocalDateTime fechaPago;
@@ -27,7 +29,7 @@ public class ComandoEntidadPaciente {
         return "ComandoEntidadPaciente{" +
                 "idEntidadPaciente=" + idEntidadPaciente +
                 ", paciente='" + paciente + '\'' +
-                ", entidad='" + entidad + '\'' +
+                ", nombreEntidad='" + nombreEntidad + '\'' +
                 ", valor=" + valor +
                 ", fechaVinculacion='" + fechaVinculacion + '\'' +
                 ", fechaPago='" + fechaPago + '\'' +

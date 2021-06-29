@@ -13,6 +13,7 @@ public class RepositorioEntidadPacienteMysql implements RepositorioEntidadPacien
     private static final String ACTUALIZAR = "actualizar";
     private static final String EXISTE_INCLUYE_ID = "existeIncluyendoId";
     private static final String EXISTE_EXCLUYE_ID = "existeExcluyendoId";
+    private static final String EXISTE_INCLUYE_ID_PACIENTE = "existeIncluyendoIdPaciente";
     private static final String CAMPO_IDENT = "idPaciente";
     private static final String CAMPO_VALOR = "valor";
     private static final String CAMPO_FECHA_PAGO = "fechaPago";
@@ -28,6 +29,9 @@ public class RepositorioEntidadPacienteMysql implements RepositorioEntidadPacien
 
     @SqlStatement(namespace= NAMESPACE, value=EXISTE_EXCLUYE_ID)
     private static String sqlExisteExcluyendoId;
+
+    @SqlStatement(namespace= NAMESPACE, value=EXISTE_INCLUYE_ID_PACIENTE)
+    private static String sqlExisteIdPaciente;
 
     @SqlStatement(namespace= NAMESPACE, value=EXISTE_INCLUYE_ID)
     private static String sqlExisteId;
@@ -61,5 +65,13 @@ public class RepositorioEntidadPacienteMysql implements RepositorioEntidadPacien
         paramSource.addValue(CAMPO_IDENT, idPaciente);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
+    }
+
+    @Override
+    public boolean existeIncluyendoIdPaciente(Integer idPaciente) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue(CAMPO_IDENT, idPaciente);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteIdPaciente,paramSource, Boolean.class);
     }
 }

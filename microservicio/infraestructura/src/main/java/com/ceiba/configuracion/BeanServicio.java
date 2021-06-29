@@ -35,8 +35,8 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioEliminarPaciente servicioEliminarPaciente(RepositorioPaciente repositorioPaciente) {
-        return new ServicioEliminarPaciente(repositorioPaciente);
+    public ServicioEliminarPaciente servicioEliminarPaciente(RepositorioPaciente repositorioPaciente, RepositorioEntidadPaciente repositorioEntidadPaciente) {
+        return new ServicioEliminarPaciente(repositorioPaciente, repositorioEntidadPaciente);
     }
 
     @Bean

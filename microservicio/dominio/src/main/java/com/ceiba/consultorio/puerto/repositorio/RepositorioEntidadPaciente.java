@@ -24,4 +24,11 @@ public interface RepositorioEntidadPaciente {
      */
     boolean existeExcluyendoId(Integer idPaciente);
 
+    /**
+     * Permite validar si existe un EntidadPaciente excluyendo un id
+     * @param idPaciente
+     * @return si existe o no
+     */
+    boolean existeIncluyendoIdPaciente (Integer idPaciente);
+
 }

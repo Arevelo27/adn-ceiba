@@ -29,7 +29,7 @@ CREATE TABLE paciente(
     apellidos VARCHAR(70) NOT NULL,
     identificacion int(13) NOT NULL,
     direccion VARCHAR(150) NOT NULL,
-    telefono varchar (9) NOT NULL,
+    telefono varchar (10) NOT NULL,
     email VARCHAR(55) NOT NULL
 );
 

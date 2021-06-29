@@ -20,13 +20,13 @@ public class EntidadPaciente {
 
     private Long idEntidadPaciente;
     private Paciente paciente;
-    private Integer entidad;
+    private Entidad entidad;
     private Double valor;
     private LocalDateTime fechaVinculacion;
     private LocalDateTime fechaPago;
     private Integer activo;
 
-    public EntidadPaciente(Long idEntidadPaciente, Paciente paciente, Integer entidad, Double valor, LocalDateTime fechaVinculacion, LocalDateTime fechaPago, Integer activo) {
+    public EntidadPaciente(Long idEntidadPaciente, Paciente paciente, Entidad entidad, Double valor, LocalDateTime fechaVinculacion, LocalDateTime fechaPago, Integer activo) {
 
         validarObligatorio(paciente, MENSAJES_CAMPO_OBLIGATORIO_PACIENTE);
         validarObligatorio(paciente, MENSAJES_CAMPO_OBLIGATORIO_ENTIDAD);

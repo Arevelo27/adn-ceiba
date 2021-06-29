@@ -74,7 +74,6 @@ public class RepositorioPagoMysql implements RepositorioPago {
         paramSource.addValue("valorPagado", pago.getValorPagado());
         paramSource.addValue("valorAdeudado", pago.getValorAdeudado());
         paramSource.addValue("fechaPago", pago.getFechaPago());
-        //this.customNamedParameterJdbcTemplate.actualizar(pago, sqlActualizar);
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlActualizar, paramSource);
     }
 

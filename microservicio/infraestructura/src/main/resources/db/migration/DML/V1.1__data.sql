@@ -8,6 +8,7 @@ insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_e
 insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(8,'72301305','FV-1986','Anestesiología',1000000,0,'2020-02-28','');
 insert into pagos (id_pago,documento_Identificacion_Deudor,codigo_Factura,tipo_examen,valor_Adeudado,valor_Pagado,fecha_Vencimiento_Pago,fecha_Pago) values(9,'72301305','FV-1986','Cardiología',1000000,0,'2020-02-28','');
 
+
 ---ENTIDAD---
 INSERT INTO entidad (eps) values ('Eps Sura');
 INSERT INTO entidad (eps) values ('SOS');
@@ -43,6 +44,7 @@ INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telef
 INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telefono) VALUES('YAHAIRA', 'RUIZ', 72301341, 'CR 44A', 'carlos@gmail.com', '991855571');
 INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telefono) VALUES('BRAYAN', 'RUIZ', 72301342, 'CR 44A', 'carlos@gmail.com', '991855572');
 INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telefono) VALUES('KEVIN', 'RUIZ', 72301343, 'CR 44A', 'carlos@gmail.com', '991855573');
+INSERT INTO paciente(nombres, apellidos, identificacion, direccion, email, telefono) VALUES('LORENA', 'VALENCIA', 82301343, 'CR 88B', 'lorena@gmail.com', '777855573');
 
 ---ENTIDAD_PACIENTE---
 INSERT INTO entidad_paciente (id_paciente, id_entidad, valor,fecha_viculacion,fecha_Pago,activo) values (1, 1, 80000.0, '2021-06-10 05:00:00', '2021-06-10 05:00:00', 1);

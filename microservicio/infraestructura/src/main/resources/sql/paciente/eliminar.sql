@@ -1,3 +1,3 @@
 delete
 from paciente
-where identificacion = :identificacion
+where id_paciente = :idPaciente

@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class DtoEntidadPaciente {
     private Long idEntidadPaciente;
-    private String paciente;
-    private String entidad;
+    private DtoPaciente paciente;
+    private String nombreEntidad;
     private Double valor;
     private LocalDateTime fechaVinculacion;
     private LocalDateTime fechaPago;
-    private String activo;
+    private Integer activo;
 }

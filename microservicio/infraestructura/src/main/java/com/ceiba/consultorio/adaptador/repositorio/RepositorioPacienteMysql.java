@@ -16,6 +16,7 @@ public class RepositorioPacienteMysql implements RepositorioPaciente {
     private static final String EXISTE = "existe";
     private static final String EXISTE_INCLUYE_ID = "existePorCedula";
     private static final String CAMPO_IDENT = "identificacion";
+    private static final String CAMPO_ID = "idPaciente";
     private static final String CAMPO_NOMBRE = "nombres";
     private static final String CAMPO_APELLIDO = "apellidos";
     private static final String CAMPO_DIRECCION = "direccion";
@@ -63,7 +64,7 @@ public class RepositorioPacienteMysql implements RepositorioPaciente {
     @Override
     public void eliminar(Integer id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue(CAMPO_IDENT, id);
+        paramSource.addValue(CAMPO_ID, id);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }

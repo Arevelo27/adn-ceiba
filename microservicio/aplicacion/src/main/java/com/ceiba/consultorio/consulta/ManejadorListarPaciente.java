@@ -17,5 +17,7 @@ public class ManejadorListarPaciente {
 
     public List<DtoPaciente> ejecutar(){ return this.daoPaciente.listar(); }
 
-    public List<DtoPaciente> ejecutar(String identificacion){ return this.daoPaciente.listarPorCedula(identificacion); }
+    public DtoPaciente ejecutar(String identificacion){
+        return this.daoPaciente.listarPorCedula(identificacion);
+    }
 }

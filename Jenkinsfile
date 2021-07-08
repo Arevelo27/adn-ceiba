@@ -66,31 +66,19 @@ pipeline {
 		sh 'gradle --b ./microservicio/build.gradle build -x test'
       }
     }
-
-    stage("test: baseline (jdk8)") {
-        agent {
-            docker {
-                image 'adoptopenjdk/openjdk8:latest'
-                args '-v $HOME/.m2:/tmp/jenkins-home/.m2'
-            }
-        }
-        options { timeout(time: 30, unit: 'MINUTES') }
-        steps {
-            sh 'test/run.sh'
-        }
-    }
   }
-post {
+
+  post {
     always {
       echo 'This will always run'
     }
     success {
       echo 'This will run only if successful'
-	  junit 'microservicio/dominio/build/test-results/test/*.xml'
+      junit 'microservicio/dominio/build/test-results/test/*.xml'
     }
     failure {
       echo 'This will run only if failed'
-	  mail (to: 'andres.castillo@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
+      mail (to: 'andres.castillo@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
     }
     unstable {
       echo 'This will run only if the run was marked as unstable'

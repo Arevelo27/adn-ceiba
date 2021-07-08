@@ -4,7 +4,11 @@ import com.ceiba.consultorio.modelo.entidad.Paciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
 import com.ceiba.dominio.excepcion.ExcepcionNoExiste;
 
-
+/**
+ * @author andres.castillo
+ * @version 1.0
+ * @apiNote Servicio Actualizar Paciente
+ */
 public class ServicioActualizarPaciente {
 
     public static final String EL_PACIENTE_NO_EXISTE_EN_EL_SISTEMA = "El paciente no se puede actualizar porque, no existe en el sistema";

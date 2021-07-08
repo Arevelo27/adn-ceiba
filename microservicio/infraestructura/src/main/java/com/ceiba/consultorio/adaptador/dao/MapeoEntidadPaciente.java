@@ -25,8 +25,6 @@ public class MapeoEntidadPaciente implements RowMapper<DtoEntidadPaciente>, Mapp
         String email = resultSet.getString("EMAIL");
         DtoPaciente paciente = new DtoPaciente(idPaciente, nombres, apellidos, identificacion, direccion, telefono, email);
 
-//        String paciente2 = resultSet.getString("NOMBRES").concat(" " + resultSet.getString("APELLIDOS"));
-        Integer idEntidad = resultSet.getInt("ID_ENTIDAD");
         String nombreEntidad = resultSet.getString("EPS");
 
         Double valor = resultSet.getDouble("valor");

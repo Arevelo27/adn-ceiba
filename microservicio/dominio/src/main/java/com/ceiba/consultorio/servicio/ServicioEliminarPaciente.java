@@ -1,9 +1,7 @@
 package com.ceiba.consultorio.servicio;
 
-import com.ceiba.consultorio.modelo.entidad.EntidadPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioEntidadPaciente;
 import com.ceiba.consultorio.puerto.repositorio.RepositorioPaciente;
-import com.ceiba.dominio.excepcion.ExcepcionNoExiste;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 
 public class ServicioEliminarPaciente {

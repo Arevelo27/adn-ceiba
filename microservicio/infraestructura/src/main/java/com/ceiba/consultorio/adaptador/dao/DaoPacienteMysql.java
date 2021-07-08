@@ -33,7 +33,6 @@ public class DaoPacienteMysql implements DaoPaciente {
     public DtoPaciente listarPorCedula(String docIdentificacion) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue(CAMPO_IDENTIFICACION, docIdentificacion);
-        //return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorCedula,paramSource, new MapeoPaciente());
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlListarPorCedula,paramSource, new MapeoPaciente());
     }
 }
